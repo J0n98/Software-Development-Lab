@@ -3,7 +3,10 @@ import os
 
 def main():
     print("📱 --- Tages-Screen-Time Tracker --- 📱")
-    print("INFO: Jeder eingegebene Tag wird an die 'screentime.db' (User: Jon) angehängt.\n")
+    username = input("Für welchen Nutzer möchtest du Daten eintragen? (z.B. Jon): ").strip()
+    if not username:
+        username = "Jon"
+    print(f"INFO: Jeder eingegebene Tag wird an die 'screentime.db' (User: {username}) angehängt.\n")
     
     while True:
         try:
@@ -65,7 +68,7 @@ def main():
             App5_Name, App5_Zeit
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', (
-            "Jon", row['Datum'], row['Wochentag'], row['Gesamtzeit'],
+            username, row['Datum'], row['Wochentag'], row['Gesamtzeit'],
             row.get('App1_Name', ''), row.get('App1_Zeit', ''),
             row.get('App2_Name', ''), row.get('App2_Zeit', ''),
             row.get('App3_Name', ''), row.get('App3_Zeit', ''),
