@@ -41,7 +41,10 @@ def main():
             
         records.append(row_data)
 
-    db_path = 'screentime.db'
+    # Fix relative path issue to consistently use the database in the project root.
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    db_path = os.path.join(project_root, 'screentime.db')
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     
