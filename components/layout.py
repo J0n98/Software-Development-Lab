@@ -1,7 +1,8 @@
+"""Layout components and styling for the Screen Time Dashboard."""
 import streamlit as st
 
 def apply_custom_css():
-    """Injiziert benutzerdefinierte CSS Stile (Google Fonts etc.)."""
+    """Inject custom CSS styles into the Streamlit application for better typography and visual styling."""
     st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap');
@@ -11,7 +12,14 @@ def apply_custom_css():
     """, unsafe_allow_html=True)
 
 def render_sidebar(df):
-    """Rendert die Sidebar-Filter und gibt das gewählte Datum zurück."""
+    """Render the sidebar filter controls and return the selected date range.
+
+    Args:
+        df (pd.DataFrame): The dataset used to determine the minimum and maximum dates available.
+
+    Returns:
+        tuple: A tuple containing the selected start and end dates.
+    """
     st.sidebar.markdown("---")
     st.sidebar.header("Zeitraum filtern")
     min_date = df['Datum'].min().date()

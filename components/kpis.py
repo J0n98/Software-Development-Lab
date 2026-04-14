@@ -1,7 +1,13 @@
+"""KPI rendering components for the Screen Time Dashboard."""
 import streamlit as st
 
 def render_kpis(filtered_df, top_apps):
-    """Rendert die vier großen KPI Karten."""
+    """Render the main Key Performance Indicator (KPI) metric cards.
+
+    Args:
+        filtered_df (pd.DataFrame): The filtered dataset for calculating overall metrics.
+        top_apps (pd.DataFrame): The dataset aggregated by app to find the most used app.
+    """
     st.subheader("Statistische Kennzahlen")
     col1, col2, col3, col4 = st.columns(4)
     

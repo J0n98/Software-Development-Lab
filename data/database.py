@@ -1,3 +1,4 @@
+"""Database operations for the Screen Time Dashboard."""
 import sqlite3
 import pandas as pd
 import os
@@ -6,7 +7,14 @@ from utils.parsers import parse_time_to_minutes
 
 @st.cache_data
 def load_data(username):
-    """Lädt die Daten aus der SQLite-Datenbank für den ausgewählten User."""
+    """Load screen time data from SQLite database for a specific user.
+
+    Args:
+        username (str): The name of the user to load data for.
+
+    Returns:
+        pd.DataFrame: A DataFrame containing the user's screen time data, or an empty DataFrame on failure.
+    """
     db_path = 'screentime.db'
     if not os.path.exists(db_path):
         return pd.DataFrame()
@@ -20,13 +28,11 @@ def load_data(username):
         if df.empty:
             return df
             
-        # Datum parsen
-        df['Datum'] = pd.to_datetime(df['Datum'])
+        df['Datum'] = pd.to_datetime(df['Datum'])  # Parse dates to enable time-series filtering and plotting.
         
-        # Strings in numerische Minuten und Stunden umwandeln
         df['Gesamtzeit_min'] = df['Gesamtzeit'].apply(parse_time_to_minutes)
-        df['Gesamtzeit_h'] = df['Gesamtzeit_min'] / 60
+        df['Gesamtzeit_h'] = df['Gesamtzeit_min'] / 60  # Convert duration strings to numeric values for aggregations.
         
         return df
-    except Exception as e:
+    except Exception:
         return pd.DataFrame()

@@ -1,7 +1,9 @@
+"""CLI tool for manually inserting screen time daily records into the SQLite database."""
 import sqlite3
 import os
 
 def main():
+    """Run the interactive tracker application to collect and save screen time data."""
     print("📱 --- Tages-Screen-Time Tracker --- 📱")
     username = input("Für welchen Nutzer möchtest du Daten eintragen? (z.B. Jon): ").strip()
     if not username:
@@ -43,7 +45,7 @@ def main():
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     
-    # Ensure table exists (in case tracker is run before app is used on a new setup)
+    # Create the table if missing to prevent SQL errors when running on fresh setups.
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS records (
         id INTEGER PRIMARY KEY AUTOINCREMENT,

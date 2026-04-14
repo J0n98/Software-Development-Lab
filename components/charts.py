@@ -1,8 +1,13 @@
+"""Plotly chart rendering components for the Screen Time Dashboard."""
 import streamlit as st
 import plotly.express as px
 
 def render_timeline_chart(filtered_df):
-    """Rendert den Liniengraph der Gesamtzeit."""
+    """Render a line chart showing the total screen time over the selected period.
+
+    Args:
+        filtered_df (pd.DataFrame): The filtered dataset containing full daily records.
+    """
     st.subheader("Entwicklung der Gesamten Bildschirmzeit")
     df_timeline = filtered_df.sort_values(by='Datum')
     fig_timeline = px.line(df_timeline, x='Datum', y='Gesamtzeit_h', markers=True, 
@@ -13,11 +18,14 @@ def render_timeline_chart(filtered_df):
     st.plotly_chart(fig_timeline, width="stretch")
 
 def render_apps_stacked_bar(app_df):
-    """Rendert das gestapelte Balkendiagramm der Kategorien pro Tag."""
+    """Render a stacked bar chart displaying time spent per app category over time.
+
+    Args:
+        app_df (pd.DataFrame): The long-format DataFrame with individual app usage records.
+    """
     st.subheader("Aufteilung der Kategorien pro Tag")
     
-    # Aggregation der Daten, um saubere Blöcke pro Kategorie zu erhalten
-    cat_df = app_df.groupby(['Datum', 'Kategorie'])['App_Zeit_h'].sum().reset_index()
+    cat_df = app_df.groupby(['Datum', 'Kategorie'])['App_Zeit_h'].sum().reset_index()  # Aggregate data by category to create clean stacked blocks per day.
     cat_df_timeline = cat_df.sort_values(by='Datum')
     
     fig_apps = px.bar(cat_df_timeline, x='Datum', y='App_Zeit_h', color='Kategorie',
@@ -29,7 +37,12 @@ def render_apps_stacked_bar(app_df):
     st.plotly_chart(fig_apps, width="stretch")
 
 def render_small_charts(filtered_df, app_df):
-    """Rendert die zwei kleinen Charts nebeneinander (Wochentage & Kuchendiagramm)."""
+    """Render side-by-side charts for average weekday usage and category distribution.
+
+    Args:
+        filtered_df (pd.DataFrame): The filtered dataset containing full daily records.
+        app_df (pd.DataFrame): The long-format DataFrame with individual app usage records.
+    """
     st.markdown("---")
     col_chart1, col_chart2 = st.columns(2)
     
