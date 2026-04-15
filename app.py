@@ -16,7 +16,7 @@ def main():
     st.title("Screen Time Dashboard")
     
     st.sidebar.header("Benutzer-Auswahl")
-    users = ["Jon", "Anna (Test)", "Max (Test)"]
+    users = ["Jon", "Alban", "Daniel"]
     selected_user = st.sidebar.selectbox("Gruppenmitglied wählen", users)  # Allow team members to switch between their usage data.
     
     df = load_data(selected_user)
