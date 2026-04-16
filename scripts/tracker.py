@@ -5,9 +5,9 @@ import os
 def main():
     """Run the interactive tracker application to collect and save screen time data."""
     print("📱 --- Tages-Screen-Time Tracker --- 📱")
-    username = input("Für welchen Nutzer möchtest du Daten eintragen? (z.B. Jon): ").strip()
+    username = input("Für welchen Nutzer möchtest du Daten eintragen? (z.B. Daniel): ").strip()
     if not username:
-        username = "Jon"
+        username = "Test"
     print(f"INFO: Jeder eingegebene Tag wird an die 'screentime.db' (User: {username}) angehängt.\n")
     
     while True:
