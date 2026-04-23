@@ -36,3 +36,37 @@ def load_data(username):
         return df
     except Exception:
         return pd.DataFrame()
+
+
+def insert_data(datum, username, gesamtzeit, apps):
+    conn = sqlite3.connect("screentime.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        INSERT INTO records (
+            Datum, username, Gesamtzeit,
+            App1_Name, App1_Zeit,
+            App2_Name, App2_Zeit,
+            App3_Name, App3_Zeit,
+            App4_Name, App4_Zeit,
+            App5_Name, App5_Zeit
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            datum,
+            username,
+            gesamtzeit,
+            apps[0][0], apps[0][1],
+            apps[1][0], apps[1][1],
+            apps[2][0], apps[2][1],
+            apps[3][0], apps[3][1],
+            apps[4][0], apps[4][1],
+        ),
+    )
+
+    conn.commit()
+    conn.close()
+
+

@@ -3,6 +3,8 @@ import streamlit as st
 
 st.set_page_config(page_title="Screen Time Dashboard", layout="wide")  # Configuration must be the first command to avoid Streamlit errors.
 
+"""Daniel - added import for the new data entry page"""
+from components.data_entry_page import show_data_entry
 from data.database import load_data
 from utils.parsers import prepare_app_dataframe
 from components.layout import apply_custom_css, render_sidebar
@@ -10,6 +12,13 @@ from components.kpis import render_kpis
 from components.charts import render_timeline_chart, render_apps_stacked_bar, render_small_charts
 
 def main():
+    """Daniel - xxx"""
+    if "page" not in st.session_state:
+        st.session_state["page"] = "main"
+
+    if st.session_state["page"] == "data_entry":
+        show_data_entry()
+        return
     """Execute the core application logic to render the Streamlit dashboard."""
     apply_custom_css()
     
@@ -18,9 +27,14 @@ def main():
     st.sidebar.header("Benutzer-Auswahl")
     users = ["Jon", "Alban", "Daniel"]
     selected_user = st.sidebar.selectbox("Gruppenmitglied wählen", users)  # Allow team members to switch between their usage data.
-    
+
+    """Daniel - Button for Data entry page"""
+    if st.sidebar.button("Daten eintragen"):
+        st.session_state["page"] = "data_entry"
+        st.rerun()
+
     df = load_data(selected_user)
-    
+
     if df.empty:
         st.warning(f"Keine Daten für '{selected_user}' in der Datenbank (screentime.db) gefunden.")
         return
