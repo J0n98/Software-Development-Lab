@@ -1,5 +1,7 @@
 """Main entry point for the Streamlit Screen Time Dashboard application."""
 import streamlit as st
+import sqlite3
+import os
 
 st.set_page_config(page_title="Screen Time Dashboard", layout="wide")  # Configuration must be the first command to avoid Streamlit errors.
 
@@ -12,7 +14,7 @@ from components.kpis import render_kpis
 from components.charts import render_timeline_chart, render_apps_stacked_bar, render_small_charts
 
 def main():
-    """Daniel - xxx"""
+    """"""
     if "page" not in st.session_state:
         st.session_state["page"] = "main"
 
@@ -25,7 +27,19 @@ def main():
     st.title("Screen Time Dashboard")
     
     st.sidebar.header("Benutzer-Auswahl")
-    users = ["Jon", "Alban", "Daniel"]
+    # Dynamically query unique users from the database instead of using a static list
+    users = []
+    if os.path.exists('screentime.db'):
+        try:
+            with sqlite3.connect('screentime.db') as conn:
+                users = [row[0] for row in conn.execute("SELECT DISTINCT username FROM records")]
+        except Exception:
+            pass
+            
+    if not users:
+        st.warning("Keine Benutzer in der Datenbank (screentime.db) gefunden.")
+        return
+        
     selected_user = st.sidebar.selectbox("Gruppenmitglied wählen", users)  # Allow team members to switch between their usage data.
 
     """Daniel - Button for Data entry page"""
