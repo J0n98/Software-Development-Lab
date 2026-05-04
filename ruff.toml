@@ -1,0 +1,10 @@
+line-length = 125
+target-version = "py313"
+
+[lint]
+select = [
+    "E",   # grundlegende Fehler
+    "F",   # unused imports, undefined variables usw.
+    "I",   # import Sortierung
+    "W",   # Warnungen
+]
