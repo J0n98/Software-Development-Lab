@@ -1,72 +1,102 @@
 """Database operations for the Screen Time Dashboard."""
-import sqlite3
-import pandas as pd
+
+import logging
 import os
+import sqlite3
+
+import pandas as pd
 import streamlit as st
+
 from utils.parsers import parse_time_to_minutes
+
+# Modul-Logger erstellen
+logger = logging.getLogger(__name__)
+
 
 @st.cache_data
 def load_data(username: str) -> pd.DataFrame:
-    """Load screen time data from SQLite database for a specific user.
+    """Load screen time data from SQLite database for a specific user."""
+    db_path = "screentime.db"
 
-    Args:
-        username (str): The name of the user to load data for.
-
-    Returns:
-        pd.DataFrame: A DataFrame containing the user's screen time data, or an empty DataFrame on failure.
-    """
-    db_path = 'screentime.db'
     if not os.path.exists(db_path):
         return pd.DataFrame()
-        
+
     try:
         conn = sqlite3.connect(db_path)
         query = "SELECT * FROM records WHERE username = ?"
         df = pd.read_sql_query(query, conn, params=(username,))
         conn.close()
-        
+
         if df.empty:
             return df
-            
-        df['Datum'] = pd.to_datetime(df['Datum'])  # Parse dates to enable time-series filtering and plotting.
-        
-        df['Gesamtzeit_min'] = df['Gesamtzeit'].apply(parse_time_to_minutes)
-        df['Gesamtzeit_h'] = df['Gesamtzeit_min'] / 60  # Convert duration strings to numeric values for aggregations.
-        
+
+        df["Datum"] = pd.to_datetime(df["Datum"])
+        df["Gesamtzeit_min"] = df["Gesamtzeit"].apply(parse_time_to_minutes)
+        df["Gesamtzeit_h"] = df["Gesamtzeit_min"] / 60
+
         return df
+
     except Exception:
         return pd.DataFrame()
 
 
-def insert_data(datum: str, username: str, gesamtzeit: str, apps: list[tuple[str, str]]) -> None:
-    conn = sqlite3.connect("screentime.db")
-    cursor = conn.cursor()
+def insert_data(
+    datum: str,
+    username: str,
+    gesamtzeit: str,
+    apps: list[tuple[str, str]],
+) -> None:
+    """
+    Fügt einen neuen Datensatz in die SQLite-Datenbank ein.
+    """
+    if len(apps) != 5:
+        logger.error("Ungültige Anzahl an Apps: %d (erwartet: 5)", len(apps))
+        raise ValueError(f"Es müssen genau 5 Apps übergeben werden, erhalten: {len(apps)}")
 
-    cursor.execute(
-        """
-        INSERT INTO records (
-            Datum, username, Gesamtzeit,
-            App1_Name, App1_Zeit,
-            App2_Name, App2_Zeit,
-            App3_Name, App3_Zeit,
-            App4_Name, App4_Zeit,
-            App5_Name, App5_Zeit
+    logger.info("Speichere Daten für Benutzer '%s' vom %s", username, datum)
+
+    conn = None
+
+    try:
+        conn = sqlite3.connect("screentime.db")
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            INSERT INTO records (
+                Datum, username, Gesamtzeit,
+                App1_Name, App1_Zeit,
+                App2_Name, App2_Zeit,
+                App3_Name, App3_Zeit,
+                App4_Name, App4_Zeit,
+                App5_Name, App5_Zeit
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                datum,
+                username,
+                gesamtzeit,
+                apps[0][0],
+                apps[0][1],
+                apps[1][0],
+                apps[1][1],
+                apps[2][0],
+                apps[2][1],
+                apps[3][0],
+                apps[3][1],
+                apps[4][0],
+                apps[4][1],
+            ),
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """,
-        (
-            datum,
-            username,
-            gesamtzeit,
-            apps[0][0], apps[0][1],
-            apps[1][0], apps[1][1],
-            apps[2][0], apps[2][1],
-            apps[3][0], apps[3][1],
-            apps[4][0], apps[4][1],
-        ),
-    )
 
-    conn.commit()
-    conn.close()
+        conn.commit()
+        logger.info("Daten erfolgreich gespeichert.")
 
+    except sqlite3.Error as e:
+        logger.error("Datenbankfehler beim Einfügen: %s", e)
+        raise
 
+    finally:
+        if conn is not None:
+            conn.close()
