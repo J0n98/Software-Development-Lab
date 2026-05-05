@@ -52,7 +52,7 @@ logger = logging.getLogger(__name__)
 
 
 def insert_data(
-    datum: str, username: str, gesamtzeit: str, apps: list[tuple[str, str]]
+    username: str, datum: str, wochentag: str, gesamtzeit: str, apps: list[tuple[str, str]]
 ) -> None:
     """
     Fügt einen neuen Datensatz in die SQLite-Datenbank ein.
@@ -82,18 +82,19 @@ def insert_data(
         cursor.execute(
             """
             INSERT INTO records (
-                Datum, username, Gesamtzeit,
+                username, Datum, wochentag, Gesamtzeit,
                 App1_Name, App1_Zeit,
                 App2_Name, App2_Zeit,
                 App3_Name, App3_Zeit,
                 App4_Name, App4_Zeit,
                 App5_Name, App5_Zeit
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
-                datum,
                 username,
+                datum,
+                wochentag,
                 gesamtzeit,
                 apps[0][0],
                 apps[0][1],

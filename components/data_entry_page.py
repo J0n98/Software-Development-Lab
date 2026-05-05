@@ -19,8 +19,9 @@ def show_data_entry() -> None:
     """
     st.title("Daten eintragen")
 
-    datum = st.date_input("Datum", value=date.today())
     username = st.text_input("User")
+    datum = st.date_input("Datum", value=date.today())
+    wochentag = st.text_input("Wochentag")
     gesamtzeit = st.text_input("Gesamtzeit (z.B. 4h 20m)")
 
     st.write("### Die 5 meist genutzten Apps eingeben:")
@@ -37,12 +38,15 @@ def show_data_entry() -> None:
         if not username.strip():
             st.warning("Bitte einen Benutzernamen eingeben.")
             logger.warning("Speichern abgebrochen: Kein Benutzername angegeben.")
+        elif not wochentag.strip():
+            st.warning("Bitte den Wochentag eingeben.")
+            logger.warning("Speichern abgebrochen: Kein Wochentag angegeben.")
         elif not gesamtzeit.strip():
             st.warning("Bitte die Gesamtzeit eingeben.")
             logger.warning("Speichern abgebrochen: Keine Gesamtzeit angegeben.")
         else:
             try:
-                insert_data(datum.isoformat(), username, gesamtzeit, apps)
+                insert_data(username, datum.isoformat(), wochentag, gesamtzeit, apps,)
                 st.success("Gespeichert!")
             except sqlite3.Error:
                 # Datenbankfehler dem User anzeigen
