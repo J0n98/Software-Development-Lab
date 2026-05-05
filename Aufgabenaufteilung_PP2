@@ -1,0 +1,8 @@
+Error handling einfügen, wo sinnvoll --> Alban
+Logging einfügen, wo sinnvoll --> Alban
+Code Formatting Checks mit Hilfe von pylint, black oder ruff --> Alle
+Type annotations in functions --> Jon
+Für Entwicklung verschiedene git branches benutzen --> Alle
+Schriftliche Verteilung von Aufgaben auf Projekt MItglieder --> Alle
+Feature Entwicklung: In Webapp neue Daten eintragen können --> Daniel
+Smarte Erkennung von Nutzern in der Datenbank --> Jon
