@@ -39,23 +39,29 @@ def load_data(username: str) -> pd.DataFrame:
     except Exception:
         return pd.DataFrame()
 
-
 def insert_data(
-    datum: str,
-    username: str,
-    gesamtzeit: str,
-    apps: list[tuple[str, str]],
+    username: str, datum: str, wochentag: str, gesamtzeit: str, apps: list[tuple[str, str]]
 ) -> None:
     """
     Fügt einen neuen Datensatz in die SQLite-Datenbank ein.
+
+    Args:
+        datum: Datum des Eintrags im ISO-Format (YYYY-MM-DD).
+        username: Name des Benutzers.
+        gesamtzeit: Gesamte Bildschirmzeit (z.B. '4h 20m').
+        apps: Liste von genau 5 Tupeln (App-Name, App-Zeit).
+
+    Raises:
+        ValueError: Wenn nicht genau 5 Apps übergeben werden.
+        sqlite3.Error: Bei Datenbankfehlern.
     """
     if len(apps) != 5:
         logger.error("Ungültige Anzahl an Apps: %d (erwartet: 5)", len(apps))
-        raise ValueError(f"Es müssen genau 5 Apps übergeben werden, erhalten: {len(apps)}")
+        raise ValueError(
+            f"Es müssen genau 5 Apps übergeben werden, erhalten: {len(apps)}"
+        )
 
     logger.info("Speichere Daten für Benutzer '%s' vom %s", username, datum)
-
-    conn = None
 
     try:
         conn = sqlite3.connect("screentime.db")
@@ -64,18 +70,19 @@ def insert_data(
         cursor.execute(
             """
             INSERT INTO records (
-                Datum, username, Gesamtzeit,
+                username, Datum, wochentag, Gesamtzeit,
                 App1_Name, App1_Zeit,
                 App2_Name, App2_Zeit,
                 App3_Name, App3_Zeit,
                 App4_Name, App4_Zeit,
                 App5_Name, App5_Zeit
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
-                datum,
                 username,
+                datum,
+                wochentag,
                 gesamtzeit,
                 apps[0][0],
                 apps[0][1],
@@ -95,8 +102,7 @@ def insert_data(
 
     except sqlite3.Error as e:
         logger.error("Datenbankfehler beim Einfügen: %s", e)
-        raise
+        raise  # Fehler weitergeben, damit die GUI ihn anzeigen kann
 
     finally:
-        if conn is not None:
-            conn.close()
+        conn.close()  # Verbindung wird immer geschlossen, auch bei Fehler
