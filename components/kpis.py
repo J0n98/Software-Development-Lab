@@ -1,7 +1,8 @@
 """KPI rendering components for the Screen Time Dashboard."""
 import streamlit as st
+import pandas as pd
 
-def render_kpis(filtered_df, top_apps):
+def render_kpis(filtered_df: pd.DataFrame, top_apps: pd.DataFrame) -> None:
     """Render the main Key Performance Indicator (KPI) metric cards.
 
     Args:

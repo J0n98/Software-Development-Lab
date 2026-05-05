@@ -2,7 +2,7 @@
 import sqlite3
 import os
 
-def main():
+def main() -> None:
     """Run the interactive tracker application to collect and save screen time data."""
     print("📱 --- Tages-Screen-Time Tracker --- 📱")
     username = input("Für welchen Nutzer möchtest du Daten eintragen? (z.B. Daniel): ").strip()

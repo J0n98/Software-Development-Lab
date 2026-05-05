@@ -21,7 +21,7 @@ APP_CATEGORIES = {
     'Clash_of_Clans': 'Spiele'
 }
 
-def parse_time_to_minutes(time_str):
+def parse_time_to_minutes(time_str: str) -> int:
     """Parse time duration strings into total minutes.
 
     Args:
@@ -42,7 +42,7 @@ def parse_time_to_minutes(time_str):
         
     return hours * 60 + minutes
 
-def prepare_app_dataframe(filtered_df):
+def prepare_app_dataframe(filtered_df: pd.DataFrame) -> pd.DataFrame:
     """Extract individual app data into a long-format DataFrame and compute usage times.
 
     Args:

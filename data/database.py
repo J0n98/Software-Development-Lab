@@ -6,7 +6,7 @@ import streamlit as st
 from utils.parsers import parse_time_to_minutes
 
 @st.cache_data
-def load_data(username):
+def load_data(username: str) -> pd.DataFrame:
     """Load screen time data from SQLite database for a specific user.
 
     Args:
@@ -38,7 +38,7 @@ def load_data(username):
         return pd.DataFrame()
 
 
-def insert_data(datum, username, gesamtzeit, apps):
+def insert_data(datum: str, username: str, gesamtzeit: str, apps: list[tuple[str, str]]) -> None:
     conn = sqlite3.connect("screentime.db")
     cursor = conn.cursor()
 

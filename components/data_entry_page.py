@@ -3,7 +3,7 @@ from data.database import insert_data
 from datetime import date
 
 
-def show_data_entry():
+def show_data_entry() -> None:
     st.title("Daten eintragen")
 
     datum = st.date_input("Datum", value=date.today())

@@ -1,8 +1,9 @@
 """Plotly chart rendering components for the Screen Time Dashboard."""
 import streamlit as st
 import plotly.express as px
+import pandas as pd
 
-def render_timeline_chart(filtered_df):
+def render_timeline_chart(filtered_df: pd.DataFrame) -> None:
     """Render a line chart showing the total screen time over the selected period.
 
     Args:
@@ -17,7 +18,7 @@ def render_timeline_chart(filtered_df):
                                template='simple_white', font=dict(family="Fredoka, sans-serif"))
     st.plotly_chart(fig_timeline, width="stretch")
 
-def render_apps_stacked_bar(app_df):
+def render_apps_stacked_bar(app_df: pd.DataFrame) -> None:
     """Render a stacked bar chart displaying time spent per app category over time.
 
     Args:
@@ -36,7 +37,7 @@ def render_apps_stacked_bar(app_df):
     fig_apps.update_traces(marker_cornerradius=10)
     st.plotly_chart(fig_apps, width="stretch")
 
-def render_small_charts(filtered_df, app_df):
+def render_small_charts(filtered_df: pd.DataFrame, app_df: pd.DataFrame) -> None:
     """Render side-by-side charts for average weekday usage and category distribution.
 
     Args:

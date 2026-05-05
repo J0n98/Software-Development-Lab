@@ -1,7 +1,9 @@
 """Layout components and styling for the Screen Time Dashboard."""
 import streamlit as st
+import pandas as pd
+import datetime
 
-def apply_custom_css():
+def apply_custom_css() -> None:
     """Inject custom CSS styles into the Streamlit application for better typography and visual styling."""
     st.markdown("""
     <style>
@@ -11,7 +13,7 @@ def apply_custom_css():
     </style>
     """, unsafe_allow_html=True)
 
-def render_sidebar(df):
+def render_sidebar(df: pd.DataFrame) -> tuple[datetime.date, datetime.date]:
     """Render the sidebar filter controls and return the selected date range.
 
     Args:

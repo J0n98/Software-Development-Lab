@@ -13,7 +13,7 @@ from components.layout import apply_custom_css, render_sidebar
 from components.kpis import render_kpis
 from components.charts import render_timeline_chart, render_apps_stacked_bar, render_small_charts
 
-def main():
+def main() -> None:
 
     if "page" not in st.session_state:
         st.session_state["page"] = "main"
