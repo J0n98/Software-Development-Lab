@@ -1,9 +1,12 @@
 """Main entry point for the Streamlit Screen Time Dashboard application."""
+
 import streamlit as st
 import sqlite3
 import os
 
-st.set_page_config(page_title="Screen Time Dashboard", layout="wide")  # Configuration must be the first command to avoid Streamlit errors.
+st.set_page_config(
+    page_title="Screen Time Dashboard", layout="wide"
+)  # Configuration must be the first command to avoid Streamlit errors.
 
 # added import for the new data entry page
 from components.data_entry_page import show_data_entry
@@ -11,7 +14,12 @@ from data.database import load_data
 from utils.parsers import prepare_app_dataframe
 from components.layout import apply_custom_css, render_sidebar
 from components.kpis import render_kpis
-from components.charts import render_timeline_chart, render_apps_stacked_bar, render_small_charts
+from components.charts import (
+    render_timeline_chart,
+    render_apps_stacked_bar,
+    render_small_charts,
+)
+
 
 def main() -> None:
 
@@ -23,24 +31,29 @@ def main() -> None:
         return
     # Execute the core application logic to render the Streamlit dashboard.
     apply_custom_css()
-    
+
     st.title("Screen Time Dashboard")
-    
+
     st.sidebar.header("Benutzer-Auswahl")
     # Dynamically query unique users from the database instead of using a static list
     users = []
-    if os.path.exists('screentime.db'):
+    if os.path.exists("screentime.db"):
         try:
-            with sqlite3.connect('screentime.db') as conn:
-                users = [row[0] for row in conn.execute("SELECT DISTINCT username FROM records")]
+            with sqlite3.connect("screentime.db") as conn:
+                users = [
+                    row[0]
+                    for row in conn.execute("SELECT DISTINCT username FROM records")
+                ]
         except Exception:
             pass
-            
+
     if not users:
         st.warning("Keine Benutzer in der Datenbank (screentime.db) gefunden.")
         return
-        
-    selected_user = st.sidebar.selectbox("Gruppenmitglied wählen", users)  # Allow team members to switch between their usage data.
+
+    selected_user = st.sidebar.selectbox(
+        "Gruppenmitglied wählen", users
+    )  # Allow team members to switch between their usage data.
 
     # Button for Data entry page
     if st.sidebar.button("Daten eintragen"):
@@ -50,27 +63,32 @@ def main() -> None:
     df = load_data(selected_user)
 
     if df.empty:
-        st.warning(f"Keine Daten für '{selected_user}' in der Datenbank (screentime.db) gefunden.")
+        st.warning(
+            f"Keine Daten für '{selected_user}' in der Datenbank (screentime.db) gefunden."
+        )
         return
-        
+
     selected_dates = render_sidebar(df)
-    mask = (df['Datum'].dt.date >= selected_dates[0]) & (df['Datum'].dt.date <= selected_dates[1])
+    mask = (df["Datum"].dt.date >= selected_dates[0]) & (
+        df["Datum"].dt.date <= selected_dates[1]
+    )
     filtered_df = df.loc[mask].copy()
-    
+
     if filtered_df.empty:
         st.info("Im ausgewählten Zeitraum liegen keine Daten vor.")
         return
-        
+
     st.markdown("---")
-    
+
     app_df = prepare_app_dataframe(filtered_df)
-    top_apps = app_df.groupby('App_Name')['App_Zeit_h'].sum().reset_index()
-    
+    top_apps = app_df.groupby("App_Name")["App_Zeit_h"].sum().reset_index()
+
     render_kpis(filtered_df, top_apps)
     st.markdown("---")
     render_timeline_chart(filtered_df)
     render_apps_stacked_bar(app_df)
     render_small_charts(filtered_df, app_df)
+
 
 if __name__ == "__main__":
     main()

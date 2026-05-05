@@ -49,7 +49,9 @@ def show_data_entry() -> None:
             except sqlite3.Error:
                 # Datenbankfehler dem User anzeigen
                 st.error("Datenbankfehler – Eintrag konnte nicht gespeichert werden.")
-                logger.error("Datenbankfehler beim Speichern für Benutzer '%s'.", username)
+                logger.error(
+                    "Datenbankfehler beim Speichern für Benutzer '%s'.", username
+                )
             except ValueError as e:
                 st.error(f"Eingabefehler: {e}")
                 logger.error("Eingabefehler: %s", e)

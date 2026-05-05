@@ -39,8 +39,13 @@ def load_data(username: str) -> pd.DataFrame:
     except Exception:
         return pd.DataFrame()
 
+
 def insert_data(
-    username: str, datum: str, wochentag: str, gesamtzeit: str, apps: list[tuple[str, str]]
+    username: str,
+    datum: str,
+    wochentag: str,
+    gesamtzeit: str,
+    apps: list[tuple[str, str]],
 ) -> None:
     """
     Fügt einen neuen Datensatz in die SQLite-Datenbank ein.
