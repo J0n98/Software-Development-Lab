@@ -3,6 +3,14 @@
 import streamlit as st
 import sqlite3
 import os
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s:%(name)s:%(message)s"
+    )
+
+logger = logging.getLogger(__name__)
+
 
 st.set_page_config(
     page_title="Screen Time Dashboard", layout="wide"
@@ -23,8 +31,12 @@ from components.charts import (
 
 def main() -> None:
 
+    logger.info("Dashboard gestartet")
+
     if "page" not in st.session_state:
         st.session_state["page"] = "main"
+
+    logger.info("Aktuelle seite: %s", st.session_state["page"])
 
     if st.session_state["page"] == "data_entry":
         show_data_entry()
@@ -38,14 +50,17 @@ def main() -> None:
     # Dynamically query unique users from the database instead of using a static list
     users = []
     if os.path.exists("screentime.db"):
+        logger.info("Lade Benutzer aus der Datenbank")
+
         try:
             with sqlite3.connect("screentime.db") as conn:
                 users = [
                     row[0]
                     for row in conn.execute("SELECT DISTINCT username FROM records")
                 ]
-        except Exception:
-            pass
+        except Exception as e:
+            logger.error("Fehler beim Laden der Benutzer: %s",e)
+            st.error("Benutzer konnten nicht geladen werden.")
 
     if not users:
         st.warning("Keine Benutzer in der Datenbank (screentime.db) gefunden.")
@@ -54,6 +69,7 @@ def main() -> None:
     selected_user = st.sidebar.selectbox(
         "Gruppenmitglied wählen", users
     )  # Allow team members to switch between their usage data.
+    logger.info("User ausgewählt: %s", selected_user)
 
     # Button for Data entry page
     if st.sidebar.button("Daten eintragen"):
@@ -62,7 +78,10 @@ def main() -> None:
 
     df = load_data(selected_user)
 
+    logger.info("Daten geladen: %d Zeilen", len(df))
+
     if df.empty:
+        logger.warning("keine Daten für User: %s", selected_user)
         st.warning(
             f"Keine Daten für '{selected_user}' in der Datenbank (screentime.db) gefunden."
         )
@@ -73,6 +92,8 @@ def main() -> None:
         df["Datum"].dt.date <= selected_dates[1]
     )
     filtered_df = df.loc[mask].copy()
+
+    logger.info("Gefilterte Daten: %d Zeilen", len(filtered_df))
 
     if filtered_df.empty:
         st.info("Im ausgewählten Zeitraum liegen keine Daten vor.")

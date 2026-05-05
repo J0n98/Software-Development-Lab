@@ -12,6 +12,15 @@ def render_timeline_chart(filtered_df: pd.DataFrame) -> None:
         filtered_df (pd.DataFrame): The filtered dataset containing full daily records.
     """
     st.subheader("Entwicklung der Gesamten Bildschirmzeit")
+    
+    if filtered_df.empty:
+        st. warning("Keine Daten für die Anzeige vorhanden")
+        return
+    
+    required_cols =["Datum", "Gesamtzeit_h"]
+    if not all(col in filtered_df.columns for col in required_cols):
+        st.error("Fehlende Spalten im Datensatz.")
+
     df_timeline = filtered_df.sort_values(by="Datum")
     fig_timeline = px.line(
         df_timeline,
