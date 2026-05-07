@@ -18,7 +18,10 @@ def load_data(username: str) -> pd.DataFrame:
     """Load screen time data from SQLite database for a specific user."""
     db_path = "screentime.db"
 
+    logger.info("Lade Daten für Benutzer: %s", username)
+
     if not os.path.exists(db_path):
+        logger.warning("Datenbank nicht gefunden: %s", db_path)
         return pd.DataFrame()
 
     try:
@@ -26,17 +29,21 @@ def load_data(username: str) -> pd.DataFrame:
         query = "SELECT * FROM records WHERE username = ?"
         df = pd.read_sql_query(query, conn, params=(username,))
         conn.close()
+        logger.info("SQL-Abfrage erfolgreich: %d Zeilen geladen", len(df))
 
         if df.empty:
+            logger.warning("Keine Daten für Benutzer gefunden %s", username)
             return df
 
         df["Datum"] = pd.to_datetime(df["Datum"])
         df["Gesamtzeit_min"] = df["Gesamtzeit"].apply(parse_time_to_minutes)
         df["Gesamtzeit_h"] = df["Gesamtzeit_min"] / 60
+        logger.info("Daten erfolgreich verarbeitet")
 
         return df
 
     except Exception:
+        logger.error("Fehler beim Laden der Daten: %s", e)
         return pd.DataFrame()
 
 

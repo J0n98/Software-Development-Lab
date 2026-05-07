@@ -5,11 +5,13 @@ import sqlite3
 import os
 import logging
 logging.basicConfig(
-    level=logging.INFO,
-    format="%(levelname)s:%(name)s:%(message)s"
+    filename="Logs_App.log",
+    format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
+    level=logging.DEBUG,
+    force=True
     )
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("ScreenTimeDashboard")
 
 
 st.set_page_config(

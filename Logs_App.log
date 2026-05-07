@@ -1,0 +1,144 @@
+2026-05-08 00:02:25,451 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:02:25,452 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:02:25,648 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:02:25,650 | __main__ | INFO | User ausgewählt: Daniel
+2026-05-08 00:02:25,660 | __main__ | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:02:25,663 | __main__ | INFO | Gefilterte Daten: 14 Zeilen
+2026-05-08 00:05:23,693 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:05:23,694 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:05:23,895 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:05:23,896 | __main__ | INFO | User ausgewählt: Daniel
+2026-05-08 00:05:23,906 | __main__ | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:05:23,911 | __main__ | INFO | Gefilterte Daten: 14 Zeilen
+2026-05-08 00:05:38,279 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:05:38,279 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:05:38,280 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:05:38,281 | __main__ | INFO | User ausgewählt: Daniel
+2026-05-08 00:05:38,282 | __main__ | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:05:38,284 | __main__ | INFO | Gefilterte Daten: 14 Zeilen
+2026-05-08 00:05:42,513 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:05:42,513 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:05:42,514 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:05:42,515 | __main__ | INFO | User ausgewählt: Jon
+2026-05-08 00:05:42,516 | __main__ | INFO | Daten geladen: 23 Zeilen
+2026-05-08 00:05:42,518 | __main__ | INFO | Gefilterte Daten: 23 Zeilen
+2026-05-08 00:05:47,219 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:05:47,219 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:05:47,220 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:05:47,221 | __main__ | INFO | User ausgewählt: Daniel
+2026-05-08 00:05:47,222 | __main__ | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:05:47,224 | __main__ | INFO | Gefilterte Daten: 14 Zeilen
+2026-05-08 00:05:50,131 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:05:50,131 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:05:50,132 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:05:50,133 | __main__ | INFO | User ausgewählt: Alban
+2026-05-08 00:05:50,134 | __main__ | INFO | Daten geladen: 21 Zeilen
+2026-05-08 00:05:50,136 | __main__ | INFO | Gefilterte Daten: 21 Zeilen
+2026-05-08 00:05:53,697 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:05:53,698 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:05:53,699 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:05:53,700 | __main__ | INFO | User ausgewählt: Alban
+2026-05-08 00:05:53,701 | __main__ | INFO | Daten geladen: 21 Zeilen
+2026-05-08 00:05:53,704 | __main__ | INFO | Gefilterte Daten: 15 Zeilen
+2026-05-08 00:05:58,698 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:05:58,698 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:05:58,699 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:05:58,700 | __main__ | INFO | User ausgewählt: Alban
+2026-05-08 00:05:58,750 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:05:58,750 | __main__ | INFO | Aktuelle seite: data_entry
+2026-05-08 00:06:02,305 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:06:02,305 | __main__ | INFO | Aktuelle seite: data_entry
+2026-05-08 00:06:02,310 | components.data_entry_page | WARNING | Speichern abgebrochen: Kein Benutzername angegeben.
+2026-05-08 00:08:36,102 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:08:36,102 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:08:36,103 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:08:36,103 | __main__ | INFO | User ausgewählt: Daniel
+2026-05-08 00:08:36,105 | __main__ | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:08:36,107 | __main__ | INFO | Gefilterte Daten: 14 Zeilen
+2026-05-08 00:08:59,303 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:08:59,303 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:08:59,304 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:08:59,305 | __main__ | INFO | User ausgewählt: Daniel
+2026-05-08 00:08:59,306 | __main__ | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:08:59,309 | __main__ | INFO | Gefilterte Daten: 9 Zeilen
+2026-05-08 00:09:08,458 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:09:08,458 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:09:08,459 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:09:08,460 | __main__ | INFO | User ausgewählt: Alban
+2026-05-08 00:09:08,460 | __main__ | INFO | Daten geladen: 21 Zeilen
+2026-05-08 00:09:08,463 | __main__ | INFO | Gefilterte Daten: 21 Zeilen
+2026-05-08 00:09:19,468 | __main__ | INFO | Dashboard gestartet
+2026-05-08 00:09:19,468 | __main__ | INFO | Aktuelle seite: main
+2026-05-08 00:09:19,469 | __main__ | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:09:19,469 | __main__ | INFO | User ausgewählt: Jon
+2026-05-08 00:09:19,470 | __main__ | INFO | Daten geladen: 23 Zeilen
+2026-05-08 00:09:19,473 | __main__ | INFO | Gefilterte Daten: 23 Zeilen
+2026-05-08 00:10:30,040 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:10:30,040 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:10:30,239 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:10:30,240 | ScreenTimeDashboard | INFO | User ausgewählt: Daniel
+2026-05-08 00:10:30,251 | ScreenTimeDashboard | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:10:30,254 | ScreenTimeDashboard | INFO | Gefilterte Daten: 14 Zeilen
+2026-05-08 00:13:36,272 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:13:36,273 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:13:36,470 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:13:36,472 | ScreenTimeDashboard | INFO | User ausgewählt: Daniel
+2026-05-08 00:13:36,482 | ScreenTimeDashboard | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:13:36,485 | ScreenTimeDashboard | INFO | Gefilterte Daten: 14 Zeilen
+2026-05-08 00:13:45,687 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:13:45,688 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:13:45,689 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:13:45,690 | ScreenTimeDashboard | INFO | User ausgewählt: Daniel
+2026-05-08 00:13:45,691 | ScreenTimeDashboard | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:13:45,693 | ScreenTimeDashboard | INFO | Gefilterte Daten: 14 Zeilen
+2026-05-08 00:13:51,672 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:13:51,672 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:13:51,673 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:13:51,674 | ScreenTimeDashboard | INFO | User ausgewählt: Alban
+2026-05-08 00:13:51,675 | ScreenTimeDashboard | INFO | Daten geladen: 21 Zeilen
+2026-05-08 00:13:51,677 | ScreenTimeDashboard | INFO | Gefilterte Daten: 21 Zeilen
+2026-05-08 00:13:54,651 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:13:54,652 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:13:54,653 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:13:54,654 | ScreenTimeDashboard | INFO | User ausgewählt: Alban
+2026-05-08 00:13:54,655 | ScreenTimeDashboard | INFO | Daten geladen: 21 Zeilen
+2026-05-08 00:13:54,659 | ScreenTimeDashboard | INFO | Gefilterte Daten: 15 Zeilen
+2026-05-08 00:14:03,484 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:14:03,484 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:14:03,485 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:14:03,486 | ScreenTimeDashboard | INFO | User ausgewählt: Alban
+2026-05-08 00:14:03,536 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:14:03,536 | ScreenTimeDashboard | INFO | Aktuelle seite: data_entry
+2026-05-08 00:14:07,022 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:14:07,022 | ScreenTimeDashboard | INFO | Aktuelle seite: data_entry
+2026-05-08 00:14:07,027 | components.data_entry_page | WARNING | Speichern abgebrochen: Kein Benutzername angegeben.
+2026-05-08 00:24:00,709 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:24:00,709 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:24:00,710 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:24:00,710 | ScreenTimeDashboard | INFO | User ausgewählt: Daniel
+2026-05-08 00:24:00,711 | data.database | INFO | Lade Daten für Benutzer: Daniel
+2026-05-08 00:24:00,714 | data.database | INFO | SQL-Abfrage erfolgreich: 14 Zeilen geladen
+2026-05-08 00:24:00,715 | data.database | INFO | Daten erfolgreich verarbeitet
+2026-05-08 00:24:00,716 | ScreenTimeDashboard | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:24:00,719 | ScreenTimeDashboard | INFO | Gefilterte Daten: 14 Zeilen
+2026-05-08 00:24:43,789 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:24:43,789 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:24:43,790 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:24:43,791 | ScreenTimeDashboard | INFO | User ausgewählt: Alban
+2026-05-08 00:24:43,791 | data.database | INFO | Lade Daten für Benutzer: Alban
+2026-05-08 00:24:43,794 | data.database | INFO | SQL-Abfrage erfolgreich: 21 Zeilen geladen
+2026-05-08 00:24:43,795 | data.database | INFO | Daten erfolgreich verarbeitet
+2026-05-08 00:24:43,796 | ScreenTimeDashboard | INFO | Daten geladen: 21 Zeilen
+2026-05-08 00:24:43,798 | ScreenTimeDashboard | INFO | Gefilterte Daten: 21 Zeilen
+2026-05-08 00:25:30,570 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:25:30,570 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:25:30,571 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:25:30,572 | ScreenTimeDashboard | INFO | User ausgewählt: Alban
+2026-05-08 00:25:30,573 | ScreenTimeDashboard | INFO | Daten geladen: 21 Zeilen
+2026-05-08 00:25:30,576 | ScreenTimeDashboard | INFO | Gefilterte Daten: 13 Zeilen
+2026-05-08 00:25:47,944 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:25:47,944 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:25:47,945 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:25:47,946 | ScreenTimeDashboard | INFO | User ausgewählt: Alban
+2026-05-08 00:25:47,947 | ScreenTimeDashboard | INFO | Daten geladen: 21 Zeilen
+2026-05-08 00:25:47,950 | ScreenTimeDashboard | INFO | Gefilterte Daten: 5 Zeilen
