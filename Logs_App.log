@@ -142,3 +142,15 @@
 2026-05-08 00:25:47,946 | ScreenTimeDashboard | INFO | User ausgewählt: Alban
 2026-05-08 00:25:47,947 | ScreenTimeDashboard | INFO | Daten geladen: 21 Zeilen
 2026-05-08 00:25:47,950 | ScreenTimeDashboard | INFO | Gefilterte Daten: 5 Zeilen
+2026-05-08 00:39:17,056 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:39:17,056 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:39:17,057 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:39:17,058 | ScreenTimeDashboard | INFO | User ausgewählt: Daniel
+2026-05-08 00:39:17,059 | ScreenTimeDashboard | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:39:17,062 | ScreenTimeDashboard | INFO | Gefilterte Daten: 14 Zeilen
+2026-05-08 00:39:24,333 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:39:24,334 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:39:24,334 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:39:24,335 | ScreenTimeDashboard | INFO | User ausgewählt: Alban
+2026-05-08 00:39:24,336 | ScreenTimeDashboard | INFO | Daten geladen: 21 Zeilen
+2026-05-08 00:39:24,338 | ScreenTimeDashboard | INFO | Gefilterte Daten: 21 Zeilen
