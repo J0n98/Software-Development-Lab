@@ -154,3 +154,24 @@
 2026-05-08 00:39:24,335 | ScreenTimeDashboard | INFO | User ausgewählt: Alban
 2026-05-08 00:39:24,336 | ScreenTimeDashboard | INFO | Daten geladen: 21 Zeilen
 2026-05-08 00:39:24,338 | ScreenTimeDashboard | INFO | Gefilterte Daten: 21 Zeilen
+2026-05-08 00:47:45,713 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:47:45,713 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:47:45,714 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:47:45,715 | ScreenTimeDashboard | INFO | User ausgewählt: Daniel
+2026-05-08 00:47:45,716 | ScreenTimeDashboard | INFO | Daten geladen: 14 Zeilen
+2026-05-08 00:47:45,719 | ScreenTimeDashboard | INFO | Gefilterte Daten: 14 Zeilen
+2026-05-08 00:47:48,619 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:47:48,619 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:47:48,620 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:47:48,621 | ScreenTimeDashboard | INFO | User ausgewählt: Alban
+2026-05-08 00:47:48,622 | ScreenTimeDashboard | INFO | Daten geladen: 21 Zeilen
+2026-05-08 00:47:48,624 | ScreenTimeDashboard | INFO | Gefilterte Daten: 21 Zeilen
+2026-05-08 00:47:50,777 | ScreenTimeDashboard | INFO | Dashboard gestartet
+2026-05-08 00:47:50,778 | ScreenTimeDashboard | INFO | Aktuelle seite: main
+2026-05-08 00:47:50,779 | ScreenTimeDashboard | INFO | Lade Benutzer aus der Datenbank
+2026-05-08 00:47:50,780 | ScreenTimeDashboard | INFO | User ausgewählt: Jon
+2026-05-08 00:47:50,781 | data.database | INFO | Lade Daten für Benutzer: Jon
+2026-05-08 00:47:50,782 | data.database | INFO | SQL-Abfrage erfolgreich: 23 Zeilen geladen
+2026-05-08 00:47:50,784 | data.database | INFO | Daten erfolgreich verarbeitet
+2026-05-08 00:47:50,785 | ScreenTimeDashboard | INFO | Daten geladen: 23 Zeilen
+2026-05-08 00:47:50,787 | ScreenTimeDashboard | INFO | Gefilterte Daten: 23 Zeilen
