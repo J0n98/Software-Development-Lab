@@ -5,7 +5,7 @@ import sqlite3
 import os
 import logging
 logging.basicConfig(
-    filename="logs/Dashboard.log",
+    filename="Dashboard.log",
     format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
     level=logging.DEBUG,
     force=True
